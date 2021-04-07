@@ -21,14 +21,13 @@ class editEntryForm(forms.Form):
 
 def index(request):
     entries = util.list_entries()
-    search_results = []
 
     if request.method == "POST":
         form = NewForm(request.POST)
         
         if form.is_valid():
                 page = form.cleaned_data['page']
-                             
+                search_results = []     
                 for entry in entries: 
                     if entry.lower() == page.lower():
                         pageResult = util.get_entry(page)
@@ -42,19 +41,20 @@ def index(request):
                         
                     if page.lower() in entry.lower():
                         search_results.append(entry)
-                        return render(request, "encyclopedia/search.html", {
-                        "results": search_results,
-                        "name": page,
-                        "form": NewForm()
-                        })
-                else:
-                        error = 'Page is not Exsist'
-                        return render(request, "encyclopedia/error.html", {
+
+                if not search_results:
+                    error = 'Page is not Exsist'
+                    return render(request, "encyclopedia/error.html", {
                             "name": page,
                             'error': error,
                             "form": NewForm()
                         })
-        
+                return render(request, "encyclopedia/search.html", {
+                            "results": search_results,
+                            "name": page,
+                            "form": NewForm()
+                        })  
+                   
     else: 
         return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries(),
@@ -63,20 +63,19 @@ def index(request):
 
 def wiki(request, name):
     entry = util.get_entry(name)
-    entry_markdown = markdown2.markdown(entry)
     error = 'Page is not Exsist'
     if entry is None:
-
         return render(request, "encyclopedia/error.html", {
             "name": name,
             'error': error,
-            "form": NewForm()
+            "form": NewForm()   
         })
     else:
+        entry_markdown = markdown2.markdown(entry)
         return render(request, "encyclopedia/wiki.html", {
             "wiki": entry_markdown,
             "name": name,
-            "form": NewForm()
+            "form": NewForm() 
         })
 
 def newEntry(request):
