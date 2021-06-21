@@ -18,6 +18,7 @@ This is one of the Harvard Course projects - **Wikipedia-like app**. \
 Project is created with:
 * Django
 * Python
+* Bootstrap 
 * HTML5 / CSS3
 	
 ## Setup
