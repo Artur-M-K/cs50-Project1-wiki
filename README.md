@@ -1,5 +1,5 @@
 # cs50-Project1-wiki
-CS50's Web Programming with Python and JavaScript : CS50w Project1 - Wiki: Wikipedia-like online encyclopedia \
+CS50's Web Programming with Python and JavaScript : CS50w Project1 - Wiki: Wikipedia-like online encyclopedia 
 # [Live Demo](https://django-wiki-app.herokuapp.com/)
 
 ## General info
