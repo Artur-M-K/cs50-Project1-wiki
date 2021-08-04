@@ -2,6 +2,8 @@
 CS50's Web Programming with Python and JavaScript : CS50w Project1 - Wiki: Wikipedia-like online encyclopedia 
 # [Live Demo](https://django-wiki-app.herokuapp.com/)
 
+![wiki](https://user-images.githubusercontent.com/80982136/128224303-b641fc16-6f0a-4d08-854b-1f7cc7349b1d.gif)
+
 ## General info
 This is one of the Harvard Course projects - **Wikipedia-like app**. \
 (Wikipedia is a free online encyclopedia that consists of a number of encyclopedia entries on various topics.)
